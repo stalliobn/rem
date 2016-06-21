@@ -1,0 +1,32 @@
+@import 'variables', 'mixins', 'normalize';
+@import 'parts/header', 'parts/lightbox', 'parts/slider-box', 'parts/portfolio-page', 'parts/modal';
+html {
+  &:before {
+    content: "#{inspect($breakpoints)}";
+    display: none;
+  }
+}
+.clearfix {
+  @each $pseudo in after before {
+    &:#{$pseudo} {
+      content: '';
+      display: table;
+    }
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+body {
+  font-family: Arial;
+  font-size: 16px;
+}
+.container {
+  width: 1240px;
+  margin: auto;
+}
+* {
+  box-sizing: border-box;
+}
