@@ -256,7 +256,7 @@
         <h2>География нашей деятельности</h2>
         <p>Задача организации, в особенности же дальнейшее развитие различных форм деятельности представляет собой интересный эксперимент проверки существенных финансовых и административных условий. </p>
       </div>
-      <div class="map-bg"></div>
+      <div id="vmap" style="width: 800px; height: 500px;"></div>
     </div>
   </section>
 
@@ -371,6 +371,57 @@
   <script src="js/idangerous.swiper.min.js"></script>
   <script src="js/jquery.lightbox.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKHg5gR8UiAxb6NYF0YP6Fr-XBNLtZc6w"></script>
+  <script src="js/jquery.vmap.js" type="text/javascript"></script>
+  <script src="js/maps/jquery.vmap.russia.js" type="text/javascript"></script>
   <script src='js/script.js'></script>
+
+
+  <script type="text/javascript">
+    // Массив всех объектов
+    var data_obj = {
+      'kr': [],
+      'ir': []
+    };
+    colorRegion = '#1076C8'; // Цвет всех регионов
+    focusRegion = '#FF9900'; // Цвет подсветки регионов при наведении на объекты из списка
+    selectRegion = '#0A4C82'; // Цвет изначально подсвеченных регионов
+
+    highlighted_states = {};
+
+    // Массив подсвечиваемых регионов, указанных в массиве data_obj
+    for(iso in data_obj){
+      highlighted_states[iso] = selectRegion;
+    }
+
+      $('#vmap').vectorMap({
+        map: 'russia',
+        backgroundColor: '#ffffff',
+        borderColor: '#ffffff',
+        borderWidth: 2,
+        color: colorRegion,
+        colors: highlighted_states,
+        hoverOpacity: 0.7,
+        enableZoom: false,
+        showTooltip: true
+      });
+
+    // Подсветка регионов при наведении на объекты
+    $(function(){
+      $('.focus-region').mouseover(function(){
+        iso = $(this).prop('id');
+        fregion = {};
+        fregion[iso] = focusRegion;
+        $('#vmap').vectorMap('set', 'colors', fregion);
+      });
+      $('.focus-region').mouseout(function(){
+        c = $(this).attr('href');
+        cl = (c === '#')?colorRegion:c;
+        iso = $(this).prop('id');
+        fregion = {};
+        fregion[iso] = cl;
+        $('#vmap').vectorMap('set', 'colors', fregion);
+      });
+    });
+  </script>
 </body>
 </html>

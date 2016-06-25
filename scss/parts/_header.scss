@@ -62,7 +62,6 @@ header {
       margin-right: 0;
     }
     .drop {
-      padding: 10px;
       display: none;
       position: absolute;
       top: 100%;
@@ -74,8 +73,19 @@ header {
         display: block;
         margin-right: 0;
         margin-bottom: 10px;
+        a {
+          padding: 10px;
+          @include inline-block;
+          width: 100%;
+        }
         &:last-child {
           margin-bottom: 0;
+        }
+        &:hover {
+          background: $blue;
+          a {
+            color: #fff;
+          }
         }
         a {
           float: none;
@@ -97,12 +107,6 @@ header {
     }
   }
 }
-//.line {
-//  position: absolute;
-//  height: 4px;
-//  width: 100%;
-//  background: red;
-//}
 .button-wrapper {
   @include inline-block(middle);
   span {
@@ -332,7 +336,8 @@ header {
       cursor: pointer;
       transition: .5s;
       &:hover {
-        opacity: .5;
+        background: #26b1f4;
+        color: #fff;
       }
     }
   }
@@ -433,12 +438,7 @@ header {
   height: 46px;
   background-position: 0 -793px;
 }
-//блок с картой
-.map-bg {
-  background: url(../images/map.png) no-repeat center center;
-  height: 580px;
-}
-//
+
 
 //с нами работают
 .brand-box {
@@ -573,10 +573,11 @@ header {
 
 
 .swiper-container {
-  min-width: 1240px;
-  max-width: 1800px;
+  text-align: center;
 }
-
+#vmap {
+  margin: -30px auto 0;
+}
 
 
 
