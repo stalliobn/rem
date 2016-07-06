@@ -1,5 +1,6 @@
 @import 'variables', 'mixins', 'normalize';
-@import 'parts/header', 'parts/lightbox', 'parts/slider-box', 'parts/portfolio-page', 'parts/modal';
+@import 'parts/header', 'parts/lightbox', 'parts/slider-box', 'parts/portfolio-page', 'parts/modal',
+'parts/calc';
 html {
   &:before {
     content: "#{inspect($breakpoints)}";

@@ -8,7 +8,96 @@
 </head>
 <body class="success-bg">
 
-
+<div id="modal2" class="modal_div">
+  <div class="modal-wrap">
+    <div class="calculator-wrapper">
+      <span class="modal_close"></span>
+      <div class="calculator-title">
+        <h3>Расчет стоимости обслуживания</h3>
+      </div>
+      <div class="calculator-body">
+        <div class="row center">
+          <span>Плошадь помещения:</span>
+          <input type="text" class="area" />
+          <span>кв.м.</span>
+        </div>
+        <div class="choise-service clearfix">
+          <div class="left">
+            <input type="radio" data-price="100" name="choise-service" id="subscribel-service" />
+            <label for="subscribel-service">Абонентское обслуживание</label>
+          </div>
+          <div class="right">
+            <input type="radio" name="choise-service" id="single-service" />
+            <label for="single-service">Разовое обслуживание</label>
+          </div>
+        </div>
+        <h5><span>Вентиляция</span></h5>
+        <div class="ventilation">
+          <div class="ventilation-wrap">
+            <input type="checkbox" id="fank" data-fank="20" />
+            <label for="fank">Фанкойлы</label>
+            <input id="quantityFan" type="number" size="3" name="num-fank" min="1" max="12" value="1">
+          </div>
+          <div class="ventilation-wrap">
+            <input type="checkbox" id="air-cond" data-air="30" />
+            <label for="air-cond">Кондиционеры</label>
+            <input type="number" id="quantityCond" size="3" name="num-cond" min="1" max="12" value="1">
+          </div>
+          <div class="ventilation-wrap">
+            <input type="checkbox" id="unit" data-unit="40" />
+            <label for="unit">Проточно вытяжная установка</label>
+          </div>
+        </div>
+        <h5><span>Переодичность обслуживания</span></h5>
+        <div class="period-wrap">
+          <div class="period-row">
+            <input type="radio" name="period-service" id="period" data-period="2" />
+            <label for="period">Два раза в год</label>
+          </div>
+          <div class="period-row">
+            <input type="radio" name="period-service" id="period2" data-period="4" />
+            <label for="period2">Четыре раза в год</label>
+          </div>
+          <div class="period-row">
+            <input type="radio" name="period-service" id="period3" data-period="12" />
+            <label for="period3">Ежемесячно</label>
+          </div>
+        </div>
+        <h5><span>Дополнительно</span></h5>
+        <div class="optional">
+          <div class="optional-row">
+            <input type="checkbox" id="electro" data-electro="50" />
+            <label for="electro">Элуктрооборудование</label>
+          </div>
+          <div class="optional-row">
+            <input type="checkbox" id="special" data-special="60" />
+            <label for="special">Противопожарное и специальное оборудование</label>
+          </div>
+        </div>
+      </div>
+      <div class="calculator-result">
+        <div class="result-wrap">
+          Итого в месяц
+          <span class="result"></span>
+          руб
+        </div>
+        <div class="result-wrap">
+          Итого в год
+          <span class="result"></span>
+          руб
+        </div>
+      </div>
+      <div class="calculator-footer">
+        <form class="calculator-form">
+          <input type="text" placeholder="Имя" />
+          <input type="email" placeholder="E-mail" />
+          <input type="submit" value="Отправить" .>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="overlay"></div>
+</div>
 
 
   <div id="modal1" class="modal_div">
@@ -63,7 +152,7 @@
       </div>
       <div class="right">
         <div class="button-wrapper">
-          <span class="button-calk">Рассчитать стоимость проекта</span>
+          <span class="button-calk open_modal" data-href="#modal2">Рассчитать стоимость проекта</span>
           <span class="button-call open_modal" data-href="#modal1">Заказать обратный звонок</span>
         </div>
       </div>
